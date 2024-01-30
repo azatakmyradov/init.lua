@@ -12,5 +12,8 @@ return {
         require("luasnip").filetype_extend("rust", { "rustdoc" })
         require("luasnip").filetype_extend("php", { "phpdoc" })
         require("luasnip").filetype_extend("sh", { "shelldoc" })
+        require("luasnip.loaders.from_snipmate").lazy_load {
+            paths = vim.fn.stdpath "config" .. "/snippets"
+        }
     end
 }
