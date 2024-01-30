@@ -10,6 +10,3 @@ require('azatakmyradov/options')
 
 -- [[ Basic Keymaps ]]
 require('azatakmyradov/keymaps')
-
--- [[ autocmds ]]
-require('azatakmyradov.autocmds')

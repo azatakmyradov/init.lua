@@ -1,6 +1,10 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+vim.keymap.set("v", "<leader>,,", ":s/$/,<CR>")
+vim.keymap.set("v", "<leader>,", ":s/\\%V\\(.*\\),/\\1/<CR>")
+vim.keymap.set("v", "<leader>.", ":s/,/,\\r/g<CR>")
+
 -- open filetree
 vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
 
@@ -139,3 +143,44 @@ vim.keymap.set("n", "<leader>r", function()
         vim.cmd("!php %")
     end
 end)
+
+local augroup = vim.api.nvim_create_augroup
+local AkmyradovGroup = augroup('Akmyraodov', {})
+
+local autocmd = vim.api.nvim_create_autocmd
+local yank_group = augroup('HighlightYank', {})
+
+-- flash when yanked
+autocmd('TextYankPost', {
+    group = yank_group,
+    pattern = '*',
+    callback = function ()
+        vim.highlight.on_yank({
+            higroup = 'IncSearch',
+            timeout = 40,
+        })
+    end
+})
+
+-- remove trailing space
+autocmd({"BufWritePre"}, {
+    group = AkmyradovGroup,
+    pattern = "*",
+    command = [[%s/\s\+$//e]],
+})
+
+-- LSP Attach
+autocmd({"LspAttach"}, {
+    group = AkmyradovGroup,
+    callback = function (e)
+        local opts = { buffer = e.buf }
+        vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
+        vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
+        vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
+        vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
+        vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
+        vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
+        vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
+        vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+    end
+})
