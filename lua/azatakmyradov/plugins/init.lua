@@ -110,9 +110,6 @@ return {
         end
     },
 
-    -- Trouble
-    { "folke/trouble.nvim" },
-
     -- Git Worktree
     {
         "ThePrimeagen/git-worktree.nvim",
