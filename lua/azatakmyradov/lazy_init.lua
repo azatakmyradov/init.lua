@@ -12,4 +12,7 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("azatakmyradov.plugins")
+require("lazy").setup({
+    spec = "azatakmyradov.plugins",
+    change_detection = { notify = false }
+})
