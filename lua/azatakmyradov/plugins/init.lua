@@ -116,5 +116,8 @@ return {
         dependencies = {
             "plenary"
         }
-    }
+    },
+
+    -- Prettier
+    { "prettier/vim-prettier" }
 }
