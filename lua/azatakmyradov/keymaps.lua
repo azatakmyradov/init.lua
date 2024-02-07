@@ -187,3 +187,17 @@ autocmd({"LspAttach"}, {
         vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
     end
 })
+
+-- Treesitter
+vim.keymap.set('n', '<F2>', vim.lsp.buf.rename)
+vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action)
+
+vim.keymap.set('n', 'gd', require('telescope.builtin').lsp_definitions)
+vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references)
+vim.keymap.set('n', 'gI', require('telescope.builtin').lsp_implementations)
+vim.keymap.set('n', '<leader>D', require('telescope.builtin').lsp_type_definitions)
+vim.keymap.set('n', 'gl', ":lua vim.diagnostic.open_float()<CR>")
+
+-- See `:help K` for why this keymap
+vim.keymap.set('n', 'K', vim.lsp.buf.hover)
+vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help)
