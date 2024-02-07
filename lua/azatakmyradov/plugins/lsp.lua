@@ -33,6 +33,15 @@ return {
                         capabilities = capabilites,
                     }
                 end,
+                ["tsserver"] = function ()
+                    require("lspconfig").tsserver.setup{
+                        settings = {
+                            implicitProjectConfiguration = {
+                                checkJs = true
+                            },
+                        }
+                    }
+                end,
                 ["lua_ls"] = function ()
                     require("lspconfig").lua_ls.setup {
                         capabilities = capabilites,
