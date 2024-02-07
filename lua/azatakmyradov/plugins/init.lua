@@ -121,6 +121,7 @@ return {
     -- Prettier
     { "prettier/vim-prettier" },
 
+    -- Zen Mode
     {
         "folke/zen-mode.nvim",
         opts = {

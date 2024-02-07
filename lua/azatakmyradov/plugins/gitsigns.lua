@@ -19,6 +19,27 @@ return {
                     vim.keymap.set(mode, l, r, opts)
                 end
 
+                -- Navigation
+                map({ 'n', 'v' }, ']c', function()
+                    if vim.wo.diff then
+                        return ']c'
+                    end
+                    vim.schedule(function()
+                        gs.next_hunk()
+                    end)
+                    return '<Ignore>'
+                end, { expr = true, desc = 'Jump to next hunk' })
+
+                map({ 'n', 'v' }, '[c', function()
+                    if vim.wo.diff then
+                        return '[c'
+                    end
+                    vim.schedule(function()
+                        gs.prev_hunk()
+                    end)
+                    return '<Ignore>'
+                end, { expr = true, desc = 'Jump to previous hunk' })
+
                 -- normal mode
                 map('n', '<leader>hp', gs.preview_hunk, { desc = 'preview git hunk' })
                 map('n', '<leader>hb', function()
