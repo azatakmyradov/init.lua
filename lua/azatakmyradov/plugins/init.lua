@@ -119,5 +119,14 @@ return {
     },
 
     -- Prettier
-    { "prettier/vim-prettier" }
+    { "prettier/vim-prettier" },
+
+    {
+        "folke/zen-mode.nvim",
+        opts = {
+            plugins = {
+                tmux = { enabled = true },
+            },
+        }
+    },
 }

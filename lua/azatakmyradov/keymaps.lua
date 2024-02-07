@@ -130,6 +130,9 @@ vim.keymap.set("n", "<C-s>", ":w<CR>")
 vim.keymap.set("i", "<C-s>", "<Esc>:w<CR>")
 vim.keymap.set("v", "<C-s>", "<Esc>:w<CR>")
 
+-- Enter ZenMode
+vim.keymap.set("n", "<leader>zz", ":ZenMode<CR>")
+
 -- Run file if file type is rust or typescript
 vim.keymap.set("n", "<leader>r", function()
     if vim.bo.filetype == "rust" then
