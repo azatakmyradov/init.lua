@@ -196,6 +196,7 @@ vim.keymap.set('n', 'gd', require('telescope.builtin').lsp_definitions)
 vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references)
 vim.keymap.set('n', 'gI', require('telescope.builtin').lsp_implementations)
 vim.keymap.set('n', '<leader>D', require('telescope.builtin').lsp_type_definitions)
+vim.keymap.set('n', '<leader>h', require('telescope.builtin').help_tags)
 vim.keymap.set('n', 'gl', ":lua vim.diagnostic.open_float()<CR>")
 
 -- See `:help K` for why this keymap
