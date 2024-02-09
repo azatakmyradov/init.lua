@@ -202,3 +202,6 @@ vim.keymap.set('n', 'gl', ":lua vim.diagnostic.open_float()<CR>")
 -- See `:help K` for why this keymap
 vim.keymap.set('n', 'K', vim.lsp.buf.hover)
 vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help)
+
+-- Run current lua file
+vim.keymap.set('n', '<leader><leader>x', ':w<CR> <bar> :source %<CR>');
