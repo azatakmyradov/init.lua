@@ -10,3 +10,6 @@ require('azatakmyradov/options')
 
 -- [[ Basic Keymaps ]]
 require('azatakmyradov/keymaps')
+
+-- [[ Globals ]]
+require('azatakmyradov.globals')
