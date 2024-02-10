@@ -148,29 +148,9 @@ vim.keymap.set("n", "<leader>r", function()
 end)
 
 local augroup = vim.api.nvim_create_augroup
-local AkmyradovGroup = augroup('Akmyraodov', {})
+local AkmyradovGroup = augroup('AkmyradovLSP', {})
 
 local autocmd = vim.api.nvim_create_autocmd
-local yank_group = augroup('HighlightYank', {})
-
--- flash when yanked
-autocmd('TextYankPost', {
-    group = yank_group,
-    pattern = '*',
-    callback = function ()
-        vim.highlight.on_yank({
-            higroup = 'IncSearch',
-            timeout = 40,
-        })
-    end
-})
-
--- remove trailing space
-autocmd({"BufWritePre"}, {
-    group = AkmyradovGroup,
-    pattern = "*",
-    command = [[%s/\s\+$//e]],
-})
 
 -- LSP Attach
 autocmd({"LspAttach"}, {

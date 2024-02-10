@@ -13,3 +13,6 @@ require('azatakmyradov/keymaps')
 
 -- [[ Globals ]]
 require('azatakmyradov.globals')
+
+-- [[ autocmds ]]
+require('azatakmyradov.autocmds')
