@@ -42,3 +42,12 @@ vim.api.nvim_create_autocmd("ModeChanged", {
     group = luasnip_fix_augroup
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = 'blade',
+    callback = function()
+        vim.schedule(function ()
+            vim.cmd(":set syntax=html")
+        end)
+    end,
+})
+
