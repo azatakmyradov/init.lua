@@ -186,9 +186,3 @@ vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help)
 -- Run current lua file
 vim.keymap.set('n', '<leader><leader>x', ':w<CR> <bar> :source %<CR>');
 vim.keymap.set('n', '<leader>,t', ':PlenaryBustedFile %<CR>');
-
--- Fugitive
-vim.keymap.set("n", "<leader>p", '<cmd>Git push<CR>')
-
--- rebase always
-vim.keymap.set("n", "<leader>P", "<cmd>Git pull --rebase<CR>")
