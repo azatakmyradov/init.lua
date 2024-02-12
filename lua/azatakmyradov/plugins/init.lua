@@ -132,7 +132,7 @@ return {
     },
 
     {
-        dir = '/home/azatakmyradov/plugins/command.nvim',
+        dir = '~/plugins/command.nvim',
         config = function()
             require("hcommand").setup()
         end
