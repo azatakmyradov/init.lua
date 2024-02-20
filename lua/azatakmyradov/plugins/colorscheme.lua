@@ -7,7 +7,7 @@ return {
           disable_italics = true,
         })
 
-        vim.cmd.colorscheme("rose-pine")
+        vim.cmd.colorscheme("rose-pine-moon")
 
         vim.api.nvim_set_hl(0, 'StatusLine', { bg ='#221F31' });
         vim.api.nvim_set_hl(0, 'StatusLineNC', { bg ='#221F31' });
