@@ -1,17 +1,48 @@
+local colorschemes = {
+    rose_pine = {
+        path = "rose-pine/neovim",
+        name = "rose-pine",
+    },
+    rose_pine_moon = {
+        path = "rose-pine/neovim",
+        name = "rose-pine-moon",
+    },
+    catppuccin = {
+        path = "catppuccin/nvim",
+        name = "catppuccin-frappe",
+    },
+}
+
+local colorscheme = colorschemes.catppuccin
+
 return {
-    'rose-pine/neovim',
-    lazy = false,    -- make sure we load this during startup if it is your main colorscheme
-    priority = 1000, -- make sure to load this before all the other start plugins
-    config = function()
-        require('rose-pine').setup({
-          disable_italics = true,
-        })
+    {
+        colorscheme.path,
+        priority = 1000,
+        opts = {
+            disable_italics = true,
+            dark = true
+        },
+        config = function()
+            vim.cmd.colorscheme(colorscheme.name)
 
-        vim.cmd.colorscheme("rose-pine-moon")
+            vim.api.nvim_set_hl(0, 'StatusLine', { bg ='#282828' });
+            vim.api.nvim_set_hl(0, 'StatusLineNC', { bg ='#282828' });
 
-        vim.api.nvim_set_hl(0, 'StatusLine', { bg ='#221F31' });
-        vim.api.nvim_set_hl(0, 'StatusLineNC', { bg ='#221F31' });
-
-        vim.api.nvim_set_hl(0, 'indentblanklinechar', { fg = '#2E2F43' })
-    end,
+            vim.api.nvim_set_hl(0, 'indentblanklinechar', { fg = '#282828' })
+        end,
+    },
+    {
+        -- Set lualine as statusline
+        'nvim-lualine/lualine.nvim',
+        -- See `:help lualine.txt`
+        opts = {
+            options = {
+                icons_enabled = true,
+                theme = colorscheme.name,
+                component_separators = '|',
+                section_separators = '',
+            },
+        },
+    },
 }
