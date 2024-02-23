@@ -24,6 +24,14 @@ autocmd({"BufWritePre"}, {
         local position = vim.api.nvim_win_get_cursor(0)
         vim.cmd(":%s/\\s\\+$//e")
         vim.api.nvim_win_set_cursor(0, position)
+
+        vim.schedule(function ()
+            local workspace = vim.fn.getcwd()
+            -- check if .prettierrc exists
+            if vim.fn.filereadable(workspace .. "/.prettierrc") == 1 then
+                vim.cmd(":Prettier")
+            end
+        end)
     end,
 })
 
