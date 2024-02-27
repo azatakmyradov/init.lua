@@ -122,5 +122,5 @@ return {
         config = function()
             require("hcommand").setup()
         end
-    }
+    },
 }

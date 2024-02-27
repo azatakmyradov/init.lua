@@ -8,7 +8,7 @@ local yank_group = augroup('HighlightYank', {})
 autocmd('TextYankPost', {
     group = yank_group,
     pattern = '*',
-    callback = function ()
+    callback = function()
         vim.highlight.on_yank({
             higroup = 'IncSearch',
             timeout = 40,
@@ -17,21 +17,15 @@ autocmd('TextYankPost', {
 })
 
 -- remove trailing space
-autocmd({"BufWritePre"}, {
+autocmd({ "BufWritePre" }, {
     group = AkmyradovGroup,
     pattern = "*",
-    callback = function ()
+    callback = function()
         local position = vim.api.nvim_win_get_cursor(0)
         vim.cmd(":%s/\\s\\+$//e")
         vim.api.nvim_win_set_cursor(0, position)
 
-        vim.schedule(function ()
-            local workspace = vim.fn.getcwd()
-            -- check if .prettierrc exists
-            if vim.fn.filereadable(workspace .. "/.prettierrc") == 1 then
-                vim.cmd(":Prettier")
-            end
-        end)
+        vim.lsp.buf.format()
     end,
 })
 
@@ -51,19 +45,10 @@ vim.api.nvim_create_autocmd("ModeChanged", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = 'blade',
-    callback = function()
-        vim.schedule(function ()
-            vim.cmd(":set syntax=html")
-        end)
-    end,
-})
-
-vim.api.nvim_create_autocmd("FileType", {
     pattern = 'fugitive',
     callback = function()
         local bufnr = vim.api.nvim_get_current_buf()
-        local opts = {buffer = bufnr, remap = false}
+        local opts = { buffer = bufnr, remap = false }
 
         -- Fugitive
         vim.keymap.set("n", "<leader>p", '<cmd>Git push<CR>', opts)
