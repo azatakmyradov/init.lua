@@ -11,9 +11,10 @@ return {
                 return vim.fn.executable 'make' == 1
             end,
         },
+        { 'nvim-telescope/telescope-ui-select.nvim' },
     },
 
-    config = function ()
+    config = function()
         local actions = require("telescope.actions")
         local builtin = require("telescope.builtin")
 
@@ -30,12 +31,18 @@ return {
                     hidden = true,
                 },
             },
+            extensions = {
+                ['ui-select'] = {
+                    require('telescope.themes').get_dropdown(),
+                },
+            },
         }
 
         -- Enable telescope fzf native, if installed
         pcall(require('telescope').load_extension, 'fzf')
         pcall(require('telescope').load_extension, 'live_grep_args')
         pcall(require('telescope').load_extension, 'git_worktree')
+        pcall(require('telescope').load_extension, 'ui-select')
 
         vim.keymap.set('n', '<leader>z', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
 
@@ -81,4 +88,3 @@ return {
         vim.keymap.set("n", "<leader>T", ":TodoTelescope<CR>")
     end
 }
-
