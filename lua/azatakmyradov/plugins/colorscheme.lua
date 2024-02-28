@@ -21,13 +21,16 @@ return {
         priority = 1000,
         opts = {
             disable_italics = true,
-            dark = true
+            dark = true,
+            telescope = {
+                enabled = true,
+            }
         },
         config = function()
             vim.cmd.colorscheme(colorscheme.name)
 
-            vim.api.nvim_set_hl(0, 'StatusLine', { bg ='#282828' });
-            vim.api.nvim_set_hl(0, 'StatusLineNC', { bg ='#282828' });
+            vim.api.nvim_set_hl(0, 'StatusLine', { bg = '#282828' });
+            vim.api.nvim_set_hl(0, 'StatusLineNC', { bg = '#282828' });
 
             vim.api.nvim_set_hl(0, 'indentblanklinechar', { fg = '#282828' })
         end,
