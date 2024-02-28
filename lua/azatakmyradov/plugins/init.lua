@@ -19,9 +19,6 @@ return {
     -- Install emmet-vim
     { 'mattn/emmet-vim' },
 
-    -- Add, change, and delete surrounding text.
-    { 'tpope/vim-surround' },
-
     -- Useful commands like :Rename and :SudoWrite.
     { 'tpope/vim-eunuch' },
 
