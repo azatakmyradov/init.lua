@@ -45,6 +45,16 @@ vim.api.nvim_create_autocmd("ModeChanged", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
+    pattern = 'blade',
+    callback = function()
+        vim.schedule(function()
+            vim.cmd(":set filetype=html")
+            vim.cmd(":set syntax=html")
+        end)
+    end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
     pattern = 'fugitive',
     callback = function()
         local bufnr = vim.api.nvim_get_current_buf()
