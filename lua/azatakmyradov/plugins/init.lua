@@ -113,11 +113,4 @@ return {
             },
         }
     },
-
-    {
-        dir = '~/plugins/command.nvim',
-        config = function()
-            require("hcommand").setup()
-        end
-    },
 }
