@@ -16,9 +16,6 @@ return {
         }
     },
 
-    -- Install emmet-vim
-    { 'mattn/emmet-vim' },
-
     -- Useful commands like :Rename and :SudoWrite.
     { 'tpope/vim-eunuch' },
 
