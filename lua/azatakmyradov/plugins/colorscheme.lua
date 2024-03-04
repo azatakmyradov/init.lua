@@ -11,9 +11,13 @@ local colorschemes = {
         path = "catppuccin/nvim",
         name = "catppuccin-frappe",
     },
+    tokyonight = {
+        path = "folke/tokyonight.nvim",
+        name = "tokyonight-night",
+    },
 }
 
-local colorscheme = colorschemes.catppuccin
+local colorscheme = colorschemes.tokyonight
 
 return {
     {
