@@ -55,12 +55,11 @@ return {
             })
         end)
 
-        vim.keymap.set('n', '<leader>F', function()
-            builtin.find_files({
-                no_ignore = true,
-                prompt_title = '[F]ind [A]ll Files'
-            })
-        end)
+        vim.keymap.set('n', '<leader>F',
+            function()
+                builtin.find_files({ no_ignore = true, prompt_title = '[F]ind [A]ll Files'
+                })
+            end)
 
         vim.keymap.set('n', '<leader>b', function()
             builtin.buffers({
@@ -81,11 +80,18 @@ return {
             })
         end)
 
-        vim.keymap.set('n', '<leader>s', function()
-            builtin.lsp_document_symbols({
-                prompt_title = '[S]ymbols'
+        vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
+        vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
+        vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
+
+        -- Slightly advanced example of overriding default behavior and theme
+        vim.keymap.set('n', '<leader>/', function()
+            -- You can pass additional configuration to telescope to change theme, layout, etc.
+            builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+                winblend = 10,
+                previewer = false,
             })
-        end)
+        end, { desc = '[/] Fuzzily search in current buffer' })
 
         vim.keymap.set("n", "<leader>T", ":TodoTelescope<CR>")
     end

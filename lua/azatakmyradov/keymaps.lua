@@ -41,9 +41,6 @@ vim.keymap.set("i", "<C-c>", "<Esc>")
 -- Disable Ex mode
 vim.keymap.set("n", "Q", "<Nop>")
 
--- search and replace current word
-vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-
 -- make current file executable
 vim.keymap.set("n", "<C-f>", "<cmd>!tmux neww tmux-sessionizer<CR>", { silent = true })
 vim.keymap.set("n", "<C-x>", "<cmd>!tmux neww tmux-cht.sh<CR>", { silent = true })
@@ -93,15 +90,6 @@ vim.keymap.set('n', '<A-k>', ':move .-2<CR>==')
 vim.keymap.set('v', '<A-j>', ":move '>+1<CR>gv=gv")
 vim.keymap.set('v', '<A-k>', ":move '<-2<CR>gv=gv")
 
--- Telescope
--- vim.keymap.set('n', '<leader>f', [[<cmd>lua require('telescope.builtin').find_files({ file_ignore_patterns = { "node_modules", "vendor", ".git", "storage/clockwork" }})<CR>]])
--- vim.keymap.set('n', '<leader>F', [[<cmd>lua require('telescope.builtin').find_files({ no_ignore = true, prompt_title = 'All Files' })<CR>]])
--- vim.keymap.set('n', '<leader>b', [[<cmd>lua require('telescope.builtin').buffers()<CR>]])
--- vim.keymap.set('n', '<leader>g', [[<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args({ file_ignore_patterns = { "node_modules", "vendor", ".git" }, prompt_title = 'Search characters...' })<CR>]])
--- vim.keymap.set('n', '<leader>G', [[<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>]])
--- vim.keymap.set('n', '<leader>h', [[<cmd>lua require('telescope.builtin').oldfiles()<CR>]])
--- vim.keymap.set('n', '<leader>s', [[<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>]])
-
 -- Harpoon
 local mark = require('harpoon.mark')
 local ui = require('harpoon.ui')
@@ -109,7 +97,6 @@ local ui = require('harpoon.ui')
 vim.keymap.set("n", "<leader>a", mark.add_file, { noremap = true, silent = true })
 vim.keymap.set("n", "<C-e>", ui.toggle_quick_menu, { noremap = true, silent = true })
 
-vim.keymap.set('n', '<leader>s', [[<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>]])
 vim.keymap.set("n", "<C-h>", [[<cmd>lua require('harpoon.ui').nav_file(1)<CR>]])
 vim.keymap.set("n", "<C-t>", [[<cmd>lua require('harpoon.ui').nav_file(2)<CR>]])
 vim.keymap.set("n", "<C-n>", [[<cmd>lua require('harpoon.ui').nav_file(3)<CR>]])
@@ -153,9 +140,9 @@ local AkmyradovGroup = augroup('AkmyradovLSP', {})
 local autocmd = vim.api.nvim_create_autocmd
 
 -- LSP Attach
-autocmd({"LspAttach"}, {
+autocmd({ "LspAttach" }, {
     group = AkmyradovGroup,
-    callback = function (e)
+    callback = function(e)
         local opts = { buffer = e.buf }
         vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
         vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
@@ -171,13 +158,6 @@ autocmd({"LspAttach"}, {
 -- Treesitter
 vim.keymap.set('n', '<F2>', vim.lsp.buf.rename)
 vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action)
-
-vim.keymap.set('n', 'gd', require('telescope.builtin').lsp_definitions)
-vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references)
-vim.keymap.set('n', 'gI', require('telescope.builtin').lsp_implementations)
-vim.keymap.set('n', '<leader>D', require('telescope.builtin').lsp_type_definitions)
-vim.keymap.set('n', '<leader>h', require('telescope.builtin').help_tags)
-vim.keymap.set('n', 'gl', ":lua vim.diagnostic.open_float()<CR>")
 
 -- See `:help K` for why this keymap
 vim.keymap.set('n', 'K', vim.lsp.buf.hover)
