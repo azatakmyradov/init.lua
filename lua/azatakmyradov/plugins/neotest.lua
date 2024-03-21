@@ -5,6 +5,7 @@ return {
         "antoinemadec/FixCursorHold.nvim",
         "nvim-treesitter/nvim-treesitter",
         'V13Axel/neotest-pest',
+        "nvim-neotest/nvim-nio",
     },
     config = function()
         require('neotest').setup({

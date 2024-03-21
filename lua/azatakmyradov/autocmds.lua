@@ -25,7 +25,7 @@ autocmd({ "BufWritePre" }, {
         vim.cmd(":%s/\\s\\+$//e")
         vim.api.nvim_win_set_cursor(0, position)
 
-        vim.lsp.buf.format()
+        -- vim.lsp.buf.format()
     end,
 })
 

@@ -166,3 +166,10 @@ vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help)
 -- Run current lua file
 vim.keymap.set('n', '<leader><leader>x', ':w<CR> <bar> :source %<CR>');
 vim.keymap.set('n', '<leader>,t', ':PlenaryBustedFile %<CR>');
+
+-- TailwindCSS
+vim.keymap.set('n', '<leader>tc', ':TailwindConcealToggle<CR>')
+vim.keymap.set('n', '<leader>tr', ':TailwindSort<CR>')
+
+-- Copilot
+vim.keymap.set('n', '<leader>cd', ':Copilot disable<CR>')
