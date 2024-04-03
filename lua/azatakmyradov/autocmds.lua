@@ -55,6 +55,18 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
+    pattern = 'go',
+    callback = function()
+        local bufnr = vim.api.nvim_get_current_buf()
+        local opts = { buffer = bufnr, remap = false }
+
+        vim.keymap.set("n", "<leader>he", function ()
+            vim.api.nvim_put({ "if err != nil {", "\treturn err", "}" }, "l", true, true)
+        end, opts)
+    end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
     pattern = 'fugitive',
     callback = function()
         local bufnr = vim.api.nvim_get_current_buf()
