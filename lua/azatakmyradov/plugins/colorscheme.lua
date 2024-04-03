@@ -9,7 +9,7 @@ local colorschemes = {
     },
     catppuccin = {
         path = "catppuccin/nvim",
-        name = "catppuccin-frappe",
+        name = "catppuccin",
     },
     tokyonight = {
         path = "folke/tokyonight.nvim",
@@ -17,7 +17,7 @@ local colorschemes = {
     },
 }
 
-local colorscheme = colorschemes.tokyonight
+local colorscheme = colorschemes.catppuccin
 
 return {
     {
@@ -33,23 +33,10 @@ return {
         config = function()
             vim.cmd.colorscheme(colorscheme.name)
 
-            vim.api.nvim_set_hl(0, 'StatusLine', { bg = '#282828' });
-            vim.api.nvim_set_hl(0, 'StatusLineNC', { bg = '#282828' });
+            vim.api.nvim_set_hl(0, 'StatusLine', { bg = '#1E1E2E' });
+            vim.api.nvim_set_hl(0, 'StatusLineNC', { bg = '#1E1E2E' });
 
             vim.api.nvim_set_hl(0, 'indentblanklinechar', { fg = '#282828' })
         end,
-    },
-    {
-        -- Set lualine as statusline
-        'nvim-lualine/lualine.nvim',
-        -- See `:help lualine.txt`
-        opts = {
-            options = {
-                icons_enabled = true,
-                theme = 'tokyonight',
-                component_separators = '|',
-                section_separators = '',
-            },
-        },
     },
 }
