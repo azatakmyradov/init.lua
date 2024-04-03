@@ -110,10 +110,4 @@ return {
             },
         }
     },
-
-    -- tailwind-tools.lua
-    {
-        "luckasRanarison/tailwind-tools.nvim",
-        opts = {}
-    }
 }
