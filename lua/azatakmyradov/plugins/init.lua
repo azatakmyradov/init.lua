@@ -5,6 +5,14 @@ return {
         name = "plenary"
     },
 
+    {
+        "azatakmyradov/easyswitch.nvim",
+        priority = 1000,
+        dependencies = {
+            "MunifTanjim/nui.nvim"
+        },
+    },
+
     -- NeoDev
     { "folke/neodev.nvim" },
 

@@ -1,4 +1,4 @@
-return {
+return require("easyswitch").new({
     'stevearc/conform.nvim',
     lazy = false,
     keys = {
@@ -39,4 +39,4 @@ return {
             javascript = { "prettier" },
         },
     },
-}
+})

@@ -173,3 +173,6 @@ vim.keymap.set('n', '<leader>tr', ':TailwindSort<CR>')
 
 -- Copilot
 vim.keymap.set('n', '<leader>cd', ':Copilot disable<CR>')
+
+-- EasySwitch
+vim.keymap.set('n', '<leader>M', ":lua require('easyswitch').toggle()<CR>")
