@@ -89,22 +89,4 @@ return {
             require("todo-comments").setup {}
         end
     },
-
-    -- Git Worktree
-    {
-        "ThePrimeagen/git-worktree.nvim",
-        dependencies = {
-            "plenary"
-        }
-    },
-
-    -- Zen Mode
-    {
-        "folke/zen-mode.nvim",
-        opts = {
-            plugins = {
-                tmux = { enabled = true },
-            },
-        }
-    },
 }
