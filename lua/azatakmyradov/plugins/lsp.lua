@@ -176,5 +176,19 @@ return {
                 prefix = ""
             }
         })
+
+        -- [Dart LSP]
+        local client = vim.lsp.start_client {
+            name = "dartls",
+            cmd = { "dart", "language-server", "--protocol=lsp" }
+        }
+
+        vim.api.nvim_create_autocmd("FileType", {
+            pattern = "dart",
+            callback = function()
+                vim.lsp.buf_attach_client(0, client)
+            end
+        })
+        -- [Dart LSP]
     end
 }
