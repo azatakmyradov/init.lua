@@ -97,4 +97,14 @@ return {
             require("todo-comments").setup {}
         end
     },
+
+    -- Flutter Tools
+    {
+        'akinsho/flutter-tools.nvim',
+        lazy = false,
+        dependencies = {
+            'nvim-lua/plenary.nvim',
+        },
+        config = true,
+    }
 }
