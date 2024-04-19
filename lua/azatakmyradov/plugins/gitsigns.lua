@@ -1,15 +1,7 @@
 return {
     'lewis6991/gitsigns.nvim',
-    config = function ()
+    config = function()
         require("gitsigns").setup({
-            -- See `:help gitsigns.txt`
-            signs = {
-                add = { text = '+' },
-                change = { text = '~' },
-                delete = { text = '_' },
-                topdelete = { text = '‾' },
-                changedelete = { text = '~' },
-            },
             on_attach = function(bufnr)
                 local gs = package.loaded.gitsigns
 
@@ -20,9 +12,9 @@ return {
                 end
 
                 -- Navigation
-                map({ 'n', 'v' }, ']c', function()
+                map({ 'n', 'v' }, ']h', function()
                     if vim.wo.diff then
-                        return ']c'
+                        return ']h'
                     end
                     vim.schedule(function()
                         gs.next_hunk()
@@ -30,9 +22,9 @@ return {
                     return '<Ignore>'
                 end, { expr = true, desc = 'Jump to next hunk' })
 
-                map({ 'n', 'v' }, '[c', function()
+                map({ 'n', 'v' }, '[h', function()
                     if vim.wo.diff then
-                        return '[c'
+                        return '[h'
                     end
                     vim.schedule(function()
                         gs.prev_hunk()
@@ -53,6 +45,9 @@ return {
                 -- Toggles
                 map('n', '<leader>tb', gs.toggle_current_line_blame, { desc = 'toggle git blame line' })
                 map('n', '<leader>td', gs.toggle_deleted, { desc = 'toggle git show deleted' })
+
+                map('n', '<leader>ha', ':Gitsigns stage_hunk<CR>')
+                map('n', '<leader>hr', ':Gitsigns undo_stage_hunk<CR>')
             end,
         })
     end
