@@ -121,7 +121,7 @@ vim.keymap.set("v", "<C-s>", "<Esc>:w<CR>")
 vim.keymap.set("n", "<leader>zz", ":ZenMode<CR>")
 
 -- Run file if file type is rust or typescript
-vim.keymap.set("n", "<leader>r", function()
+vim.keymap.set("n", "<leader>rf", function()
     if vim.bo.filetype == "rust" then
         vim.cmd("w")
         vim.cmd("!cargo run")
@@ -131,6 +131,9 @@ vim.keymap.set("n", "<leader>r", function()
     elseif vim.bo.filetype == "php" then
         vim.cmd("w")
         vim.cmd("!php %")
+    elseif vim.bo.filetype == "go" then
+        vim.cmd("w")
+        vim.cmd("!go run %")
     end
 end)
 
