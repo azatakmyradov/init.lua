@@ -15,9 +15,21 @@ local colorschemes = {
         path = "folke/tokyonight.nvim",
         name = "tokyonight-night",
     },
+    github_dark = {
+        path = "projekt0n/github-nvim-theme",
+        name = "github_dark",
+    },
+    github_light = {
+        path = "projekt0n/github-nvim-theme",
+        name = "github_light",
+    },
+    gruvbox = {
+        path = "sainnhe/gruvbox-material",
+        name = "gruvbox-material",
+    }
 }
 
-local colorscheme = colorschemes.catppuccin
+local colorscheme = colorschemes.gruvbox
 
 return {
     {
