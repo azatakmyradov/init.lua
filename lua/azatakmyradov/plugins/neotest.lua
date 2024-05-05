@@ -10,6 +10,7 @@ return {
     },
     config = function()
         local neotest_ns = vim.api.nvim_create_namespace("neotest")
+
         vim.diagnostic.config({
             virtual_text = {
                 format = function(diagnostic)
@@ -23,7 +24,7 @@ return {
         require('neotest').setup({
             adapters = {
                 require('neotest-pest'),
-                require("neotest-go"),
+                require('neotest-go'),
             }
         })
 
