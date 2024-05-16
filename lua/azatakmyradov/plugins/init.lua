@@ -68,9 +68,6 @@ return {
         end,
     },
 
-    -- "gc" to comment visual regions/lines
-    { 'numToStr/Comment.nvim', opts = {} },
-
     { 'ThePrimeagen/harpoon' },
 
     -- UndoTree
@@ -106,7 +103,7 @@ return {
             'nvim-lua/plenary.nvim',
         },
         config = true,
-     },
+    },
 
     -- Status Line
     {
