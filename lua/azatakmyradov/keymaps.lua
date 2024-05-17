@@ -6,7 +6,7 @@ vim.keymap.set("v", "<leader>,", ":s/\\%V\\(.*\\),/\\1/<CR>")
 vim.keymap.set("v", "<leader>.", ":s/,/,\\r/g<CR>")
 
 -- open filetree
-vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
+-- vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
 
 -- move selection up or down
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
