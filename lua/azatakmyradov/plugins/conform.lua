@@ -37,6 +37,9 @@ return require("easyswitch").new({
             -- is found.
             php = { "pint" },
             javascript = { "prettier" },
+            typescript = { "prettier" },
+            typescriptreact = { "prettier" },
+            vue = { "prettier" },
         },
     },
 })
