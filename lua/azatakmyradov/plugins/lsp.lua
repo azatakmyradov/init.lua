@@ -93,7 +93,7 @@ return {
                     require("lspconfig").tsserver.setup {
                         settings = {
                             implicitProjectConfiguration = {
-                                checkJs = true
+                                checkJs = false
                             },
                         },
                         init_options = {
